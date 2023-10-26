@@ -41,40 +41,24 @@ void push(queue& q, node*newnode) {
 	}
 }
 void pop(queue& q) {
-	//int y=-1;
-	//node* p = NULL;
+	node *p=new node;
 	if (!isEmpty(q)) {
-		//gan node p bang phan tu dau tien cua queue
-		//p = q.front;
-		//gan du lieu cua node p vao x
-		//y = p->data;
-		//xoa di node dau tien cua queue
+		p=q.front;
 		q.front = q.front->next;
-		//delete p;
-		//neu front bang NULL thi gan luon rear bang NULL
-		if (q.front == NULL) {
-			q.rear = NULL;
-		}
+	       delete p;
 	}
-	//return y;
 }
 void Input(queue& q, int n) {
-	//duyet N lan
 	for (int i = 0; i < n; i++) {
-		//nhap phan tu vao bien x
 		int x;
 		cin >> x;
-		//tao node p co du lieu la x
 		node* p;
 		p = CreateNode(x);
-		//them node p vao queue
 		push(q, p);
 	}
 }
 void Output(queue q) {
-	//duyet tu dau den cuoi hang doi
-	for (node* p = q.front; p != NULL; p = p->next) {
-		//hien thi data cua cac node
+	for (node* p = q.front; p != NULL; p = p->next){
 		cout << p->data<<" ";
 	}
 	cout << endl;
